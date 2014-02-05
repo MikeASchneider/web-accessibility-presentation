@@ -1,0 +1,276 @@
+<!doctype html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+
+    <title>Web Accessibility</title>
+
+    <meta name="description" content="A framework for easily creating beautiful presentations using HTML">
+    <meta name="author" content="Hakim El Hattab">
+
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+
+    <link rel="stylesheet" href="css/reveal.min.css">
+
+    <!-- For syntax highlighting -->
+    <link rel="stylesheet" href="lib/css/zenburn.css">
+    <link href="http://fonts.googleapis.com/css?family=Roboto:400,100,500,700,900italic,900,700italic,500italic,400italic,300italic,300,100italic" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- If the query includes 'print-pdf', use the PDF print sheet -->
+    <script>
+      document.write( '<link rel="stylesheet" href="css/print/' + ( window.location.search.match( /print-pdf/gi ) ? 'pdf' : 'paper' ) + '.css" type="text/css" media="print">' );
+    </script>
+
+    <!--[if lt IE 9]>
+    <script src="lib/js/html5shiv.js"></script>
+    <![endif]-->
+  </head>
+
+  <body>
+
+    <div class="reveal">
+
+      <!-- Any section element inside of this container is displayed as a slide -->
+      <div class="slides">
+        <section>
+          <h1>Web Accessibility</h1>
+          <h3>Mike Schneider, Brand Networks, February 2014</h3>
+        </section>
+
+        <section>
+          <h2>What do we mean by "Web Accessibility?"</h2>
+          <p>
+            “The inclusive practice of making websites usable by people of all abilities and disabilities,” including but not limited to:
+          </p>
+          <ul>
+            <li>Deaf</li>
+            <li>Blind</li>
+            <li>Colorblind</li>
+            <li>Motor ability</li>
+            <li>Seizure disorders</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Why should I bother?</h2>
+          <ul>
+            <li>Moral/social reasons: The Web offers the potential for unprecedented access to information and interaction for disabled people</li>
+            <li>Financial reasons: We don't want to lose the business or attention of disabled users</li>
+            <li>Legal reasons: USA's American Rehabilitation Act and ADA, UK's Disability Discrimination Act, etc.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Principles of accessible design</h2>
+          <ul>
+            <li>Perceivable (sight, hearing, touch, transformability)</li>
+            <li>Operable (input, interaction, timing, error recovery)</li>
+            <li>Understandable (meaning, functionality)</li>
+            <li>Robust (functional across past and future tech, according to spec)</li>
+          </ul>
+        </section>
+        <section>
+          <section>
+            <h2>Semantic HTML helps everyone!</h2>
+            <p>Your HTML should reinforce the meaning of the information rather than to simply define its style</p>
+            <p>Imagine that your user were reading your plain, unrendered, source HTML. How well would this user understand the page?</p>
+          </section>
+          <section>
+            <h2>Headings</h2>
+            <ul>
+              <li>Use headings (<code>&lt;h1&gt;</code>, <code>&lt;h2&gt;</code>, etc) in order of hierarchy</li>
+              <li>For example: only use an <code>&lt;h3&gt;</code> on the page if it falls hierarchically under an <code>&lt;h2&gt;</code> and an <code>&lt;h1&gt;</code></li>
+              <li>If necessary, a descriptive header can be hidden from view</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Buttons, anchors, and divs</h2>
+            <ul>
+              <li>Anchors (<code>&lt;a&gt;</code>) are not buttons!</li>
+              <li><code>&lt;div&gt;</code> tags are not buttons!</li>
+              <li>If clicking on an element triggers a JavaScript event, it's a <code>&lt;button&gt;</code>.</li>
+              <li>If clicking on an element changes the URL in the address bar, it's an anchor (<code>&lt;a&gt;</code>)</li>
+              <li><code>&lt;a href="#"&gt;&lt;/a&gt;</code> is a red flag.</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Fancy new HTML5 semantic tags</h2>
+              <li><code>&lt;article&gt;</code></li>
+              <li><code>&lt;header&gt;</code></li>
+              <li><code>&lt;section&gt;</code></li>
+              <li><code>&lt;footer&gt;</code></li>
+              <li><code>&lt;nav&gt;</code></li>
+              <li><code>&lt;header&gt;</code></li>
+              <li><code>&lt;time&gt;</code> (include machine-readable datetime </li>
+              <li><code>&lt;em&gt;</code> - use only when providing emphasis. Sometimes italics are used for stylistic reasons rather than emphasis</li>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>The easy ones (to explain) first</h2>
+          </section>
+          <section>
+            <h2>Deafness</h2>
+            <ul>
+              <li>
+                All videos or embedded audio should have transcripts or captions (and ideally a sign language interpretation)
+              </li>
+              <li>
+                Any audio cues should be accompanied by a visual cue
+              </li>
+              <li>Side benefits of transcripts: Better for SEO and users who can't or prefer not to use speakers</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Colorblindness</h2>
+            <ul>
+              <li>Colors should not be the only means of conveying information</li>
+              <li>Use a colorblindness simulator to ensure that your page can be fully understood without full perception of color</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Limited motor abilities</h2>
+            <ul>
+              <li>Users may not be able to use a mouse - make your site usable with only the mouse</li>
+              <li>Users might make mistakes - ask for confirmation, have easy ways to undo</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Seizure disorders</h2>
+            <p>Strobing, flickering, flashing, and other distracting effects may cause dizziness, nausea, and even seizures in users with photosensitive epilipsy and other disorders.</p>
+            <p>Strobes, flickers, and flashes, should be avoided or prefaced with a clear and concise warning.</p>
+            <p><em>Note: Section 508 prohibits flickers greater than 2 per second</em></p>
+          </section>
+        </section>
+        <section>
+          <section>
+            <h2>Blindness</h2>
+          </section>
+          <section>
+            <h2>How do blind users use the Web?</h2>
+            <ul>
+              <li>Perception: Screenreaders</li>
+              <li>Operation: Keyboard-only</li>
+              <li>Understanding: Information is presented linearly</li>
+            </ul>
+          </section>
+          <section>
+            <h2>General tips in developing for the blind</h2>
+            <ul>
+              <li>Always provide keyboard alternatives to mouse interactions (avoid <code>onmouseover</code>, etc)</li>
+              <li>Provide descriptive text when necessary</li>
+              <li>Don't repeat yourself</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Not just audio screenreaders!</h2>
+            <p><a href="http://www.youtube.com/watch?v=Gd10syL5RLY&t=2m14s" target="_blank">Using an iPhone with a Braille display</a></p>
+          </section>
+          <section>
+            <h2>How screenreaders can be used</h2>
+            <ul>
+              <li>Navigating linearly down a page</li>
+              <li>Skip through heading tags to the desired section</li>
+              <li>Skim through a list of all the links on the page (out of context)</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Limitations of screenreaders</h2>
+            <ul>
+              <li>Can't “describe” images (duh)</li>
+              <li>Some context that's obvious to a seeing user might be unclear</li>
+              <li>When necessary, use offscreen descriptive text</li>
+            </ul>
+          </section>
+          <section>
+            <h2>Offscreen descriptive text</h2>
+            <p>Consider this “facepile” example:</p>
+            <pre><code data-trim class="xml">
+&lt;span class=&quot;offscreen&quot;&gt;Friends attending this event:&lt;/span&gt;
+&lt;ul&gt;
+  &lt;li&gt;&lt;img src=&quot;01.jpg&quot; alt=&quot;Mike Schneider&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;02.jpg&quot; alt=&quot;Dave Thomas&quot; /&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;img src=&quot;03.jpg&quot; alt=&quot;Anthony Mitchell&quot; /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+            </code></pre>
+            <pre><code data-trim class="css">
+/* make this invisible, don't let it take up space */
+.offscreen {
+  font-size: 0;
+  position: absolute;
+  display: inline-block;
+  height: 0;
+  width: 0;
+}
+            </code></pre>
+            <p>Note that screenreaders will ignore <code>display: none;</code> and <code>visibility: hidden;</code>, so we can't use those!</p>
+          </section>
+          <section>
+            <h2>ARIA roles example</h2>
+<pre><code data-trim class="xml">
+&lt;h2 id=&quot;nav-heading&quot;&gt;Navigation&lt;/h2&gt;
+&lt;ul class=&quot;navbar&quot; role=&quot;navigation&quot; aria-labelledby=&quot;nav-heading&quot;&gt;
+  &lt;li&gt;&lt;a href=&quot;about.html&quot;&gt;About&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;contact.html&quot;&gt;Contact&lt;/a&gt;&lt;/li&gt;
+  &lt;li&gt;&lt;a href=&quot;developers.html&quot;&gt;Developers&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</code></pre>
+          </section>
+        </section>
+        <section>
+          <h2>Accessibility myths</h2>
+          <ul>
+            <li>Adding title text to links helps screenreaders - <em>false</em>, title text is only ever visible as a tooltip</li>
+            <li>Blind people use text-only browsers, similar to Lynx - <em>false</em>, most blind people use Firefox or Internet Explorer with a screenreader; both CSS and JavaScript are enabled</li>
+            <li>Every image needs an alt attribute - <em>true</em>, but don't be redundant. Include a blank attribute (<code>alt=""</code>) if necessary.</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Resources</h2>
+          <ul>
+            <li><a href="http://webaim.org/" target="_blank">WebAIM: Web Accessibility In Mind</a></li>
+            <li><a href="http://www.w3.org/TR/wai-aria/" target="_blank">W3C: Web Accessibility Initiative - Accessible Rich Internet Applications</a></li>
+          </ul>
+        </section>
+      </div>
+
+    </div>
+
+    <script src="lib/js/head.min.js"></script>
+    <script src="js/reveal.min.js"></script>
+
+    <script>
+
+      // Full list of configuration options available here:
+      // https://github.com/hakimel/reveal.js#configuration
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+        transition: Reveal.getQueryHash().transition || 'default', // default/cube/page/concave/zoom/linear/fade/none
+
+        // Parallax scrolling
+        // parallaxBackgroundImage: 'https://s3.amazonaws.com/hakim-static/reveal-js/reveal-parallax-1.jpg',
+        // parallaxBackgroundSize: '2100px 900px',
+
+        // Optional libraries used to extend on reveal.js
+        dependencies: [
+          { src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+          { src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+          { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+          { src: 'plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+          { src: 'plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+        ]
+      });
+
+    </script>
+
+  </body>
+</html>
